@@ -1,0 +1,11 @@
+# assess-svc configuration
+service:
+  name: assess-svc
+  port: 8090
+cognita:
+  base_url: https://api.cognita.example.com
+  rate_limit_rpm: 60
+  vault_path: secret/hiring/cognita
+scoring:
+  max_retries: 3          # retry Cognita 3x with backoff, then flag for manual review
+  auto_advance_score: 75  # candidates scoring >= 75 auto-advance to interview
